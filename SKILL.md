@@ -704,6 +704,8 @@ Use `open` on macOS by default. If it fails (rare — only bare Linux containers
 - Any caveats — including any steps you skipped per Rule C (e.g. "PubMed wasn't queried because no medical signals were detected", "Skipped STEP 10 L3 enrichment because Quick tier; re-run at standard to include funder/license fields")
 - Standard tier, only when STEP 11.5's Standard row finds a gap: one sentence offering the strategy export, naming the gap and the cost — e.g. *"这次中文侧主要缺知网、万方的文献；需要的话我把这两个库的专业检索式写好（约 3–4 分钟），粘进检索框就能查。"* or *"估算覆盖率 45%，还有不少没找到；需要的话我把 WOS、Scopus、PubMed 的检索式写好（约 3–4 分钟），你拿去补检。"*
 
+**Optional — shareable link (opt-in only).** Never offer or run this by default. Only if the user explicitly asks for a link to send someone (e.g. "give me a URL for this report"), read `references/share_link.md` and run `python -m scripts.publish_report --report "$SEARCH_DIR/report.html"`. It uploads the report to a public third-party host (deed.page); tell the user the page is public before publishing, then return the printed `url`. The local report stays the primary deliverable.
+
 ---
 
 ## Output convention
@@ -780,6 +782,7 @@ You won't read all of these every run, and shouldn't. Read a step's reference wh
 | `journal_metrics.md` (SSOT) | cond | STEP 1 / STEP 10-11 — only if the user wants journal partitions (中科院 / JCR / SJR) or SJR metrics; ISSN join, attribution, R-04 naming |
 | `output_files.md` | core | STEP 12 — output dir layout (PWD-relative) |
 | `prisma_s_checklist.md` | core | STEP 13 |
+| `share_link.md` | cond | STEP 14 — only if the user explicitly asks for a shareable URL of the report (public, third-party host) |
 | `agent_mode.md` (SSOT) | cond | only when another agent / headless calls this Skill — `agent_search` envelope + flags |
 | `error_handling.md` | cond | any unexpected error |
 
